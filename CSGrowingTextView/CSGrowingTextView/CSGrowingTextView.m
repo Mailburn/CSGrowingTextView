@@ -8,7 +8,8 @@
 
 #import "CSGrowingTextView.h"
 
-#define kPladeholderPadding 8
+#define kPladeholderPaddingX 18
+#define kPladeholderPaddingY 8
 
 @interface CSGrowingTextView ()
 
@@ -84,10 +85,10 @@
     _internalTextView.delegate = self;
     [self addSubview:_internalTextView];
     
-    _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPladeholderPadding,
-                                                                  kPladeholderPadding + [self insetsValue],
-                                                                  CGRectGetWidth(self.frame) - kPladeholderPadding * 2,
-                                                                  CGRectGetHeight(self.frame) - kPladeholderPadding * 2)];
+    _placeholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(kPladeholderPaddingX,
+                                                                  kPladeholderPaddingY + [self insetsValue],
+                                                                  CGRectGetWidth(self.frame) - kPladeholderPaddingX * 2,
+                                                                  CGRectGetHeight(self.frame) - kPladeholderPaddingY * 2)];
     _placeholderLabel.numberOfLines = 0;
     _placeholderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     _placeholderLabel.font = _internalTextView.font;
@@ -166,10 +167,10 @@
 
 - (void)updatePlaceholderFrame {
     
-    CGSize size = [_placeholderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame) - kPladeholderPadding * 2,
-                                                             CGRectGetHeight(self.frame) - kPladeholderPadding * 2)];
-    _placeholderLabel.frame = CGRectMake(kPladeholderPadding,
-                                         kPladeholderPadding + [self insetsValue],
+    CGSize size = [_placeholderLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.frame) - kPladeholderPaddingX * 2,
+                                                             CGRectGetHeight(self.frame) - kPladeholderPaddingY * 2)];
+    _placeholderLabel.frame = CGRectMake(kPladeholderPaddingX,
+                                         kPladeholderPaddingY + [self insetsValue],
                                          size.width, size.height);
     
 }
