@@ -8,7 +8,7 @@
 
 #import "CSGrowingTextView.h"
 
-#define kPladeholderPaddingX 18
+#define kPladeholderPaddingX 8
 #define kPladeholderPaddingY 8
 
 @interface CSGrowingTextView ()
